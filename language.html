@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale:1.0"/>
+  <title>p5.js</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="p5.js"></script>
+</head>
+
+<body>
+  <script type="text/javascript">
+      
+    var xpos = [];
+    var ypos = [];
+    var length = 100;
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+      smooth();
+      // Initialize the arrays
+      for (var i = 0; i < length; i++) {
+        xpos[i] = 0;
+        ypos[i] = 0;
+       }
+     }
+
+     function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+     }
+
+     function draw() {
+      background(255);
+
+      //Shift the array values
+      for (var i = 0; i < length - 1; i++) {
+        xpos[i] = xpos[i + 1];
+        ypos[i] = ypos[i + 1];
+      }
+
+      // New location
+      xpos[length - 1] = mouseX;
+      ypos[length - 1] = mouseY;
+
+      // Draw it all!
+      for (var i = 0; i < length; i++) {
+        noStroke();
+        fill(255 - i * 5);
+        ellipse(xpos[i], ypos[i], i, i);
+      }
+
+      textSize(60);
+      textAlign(LEFT);
+      fill(0);
+      textFont("Helvetica");
+      text("processing is a programming language", 300, height/2);
+
+     }
+  </script>
+</body>
+</html>

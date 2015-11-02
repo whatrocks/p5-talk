@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale:1.0"/>
+  <title>p5.js</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="p5.js"></script>
+</head>
+
+<body>
+  <script type="text/javascript">
+      
+    var totalAnts = 1000;
+    var ants = [];
+
+    var RobotAnt = function() {
+      this.x = 0;
+      this.y = 0;
+      this.color = 0;
+      this.size = 1;
+    };
+
+    RobotAnt.prototype.crawl = function() {
+      this.x += random(-1, 2);
+      this.y += random(-1, 0 + (mouseY/300.0));
+
+      push();
+        translate(this.x, this.y);
+        noStroke();
+        fill(this.color);
+        ellipse(0,0,this.size, this.size);
+      pop();
+
+    };
+
+    var evacuate = function() {
+      for ( var i = 0; i < totalAnts; i++) {
+        if (random(100) < 50){
+          ants[i].x = mouseX;
+          ants[i].y = mouseY;
+        }
+      }
+    };
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+      smooth();
+      for ( var i = 0; i < totalAnts; i++) {
+        var ant = new RobotAnt();
+        ant.x = 10;
+        ant.y = height/2;
+        ant.color = color(0, random(255), random(255) );
+        ants[i] = ant;
+      }
+    }
+
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+    }
+
+    function draw() {
+      
+      for ( var i = 0; i < totalAnts; i++ ){
+        ants[i].crawl();
+      }
+
+      if ( random(50) <  1 ) {
+        evacuate();
+      }
+
+      textSize(60);
+      textAlign(LEFT);
+      fill(0);
+      textFont("Helvetica");
+      text("processing is awesome", 300, height/2);
+
+    }
+
+  </script>
+</body>
+</html>

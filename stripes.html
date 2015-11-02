@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale:1.0"/>
+  <title>p5.js</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="p5.js"></script>
+</head>
+
+<body>
+  <script type="text/javascript">
+      
+    var stripes = [];
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+      smooth();
+      for (var i = 0; i < 50; i++) {
+        stripes[i] = new Stripe();
+      }
+     }
+
+     function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+     }
+
+     function draw() {
+      background(255);
+
+      textSize(60);
+      textAlign(LEFT);
+      fill(0);
+      textFont("Helvetica");
+      text("processing is a visual way to learn to code", 300, height/2);
+
+      for ( var i = 0; i < stripes.length; i++) {
+        stripes[i].move();
+        stripes[i].display();
+      }
+     }
+
+     var Stripe = function() {
+      this.x = 0;
+      this.speed = random(10);
+      this.w = random(10, 50);
+     };
+
+     Stripe.prototype.display = function() {
+      fill(random(255),0 , 0, 100);
+      noStroke();
+      rect(this.x, 0, this.w, height);
+     };
+
+     Stripe.prototype.move = function() {
+      this.x += this.speed;
+      if ( this.x > width + 20) {
+        this.x = -20;
+      }
+     };
+
+  </script>
+</body>
+</html>

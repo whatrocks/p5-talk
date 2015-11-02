@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale:1.0"/>
+  <title>p5.js</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="p5.js"></script>
+</head>
+
+<body>
+  <script type="text/javascript">
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+      smooth();
+     }
+
+     function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+     }
+
+     function draw() {
+      background(255);
+   
+      textSize(60);
+      textAlign(LEFT);
+      fill(0);
+      textFont("Helvetica");
+      text("processing is great for data viz", 300, height/2);
+
+
+     }
+  </script>
+</body>
+</html>

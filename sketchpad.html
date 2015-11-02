@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale:1.0"/>
+  <title>p5.js</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="p5.js"></script>
+</head>
+
+<body>
+  <script type="text/javascript">
+  
+    var rotation = 0;
+    var perlinPosition = 10;
+    var perlinSpeed = 0.01;
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+      smooth();
+      background(255);
+     }
+
+     function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+     }
+
+     function draw() {
+      textSize(60);
+      textAlign(LEFT);
+      // fill(0);
+      textFont("Helvetica");
+      text("processing is a digital sketch pad", 300, height/2);
+      
+      translate(width/2, height/2);
+      rotate(rotation);
+
+      stroke(0, 50);
+
+      var armLength = noise(perlinPosition) * 500;
+
+      line(0, 0, armLength, 0);
+      ellipse(armLength, 0, 5, 5);
+      rotation = rotation + 0.01;
+      perlinPosition = perlinPosition + perlinSpeed;
+
+     }
+  </script>
+</body>
+</html>

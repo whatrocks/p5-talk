@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale:1.0"/>
+  <title>p5.js</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="p5.js"></script>
+</head>
+
+<body>
+  <script type="text/javascript">
+      
+
+
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+      smooth();
+      background(0,80,100);
+
+     }
+
+     function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+     }
+
+     function draw() {
+   
+      textSize(60);
+      textAlign(LEFT);
+      fill(255);
+      textFont("Helvetica");
+      text("processing is a great for drawing grass", 300, height/2);
+
+      }
+
+
+    function mousePressed(){
+      for(var i = 0; i < 50; i++) {
+        stroke(0,random(150,255),0,150);
+        line(mouseX,mouseY,mouseX+random(-10,10),mouseY-random(10,30));
+      }
+    } 
+    
+
+  </script>
+</body>
+</html>
