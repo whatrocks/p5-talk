@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale:1.0"/>
+  <title>p5.js</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="p5.js"></script>
+</head>
+
+<body>
+  <script type="text/javascript">
+
+    var img;
+    var smallPoint, largePoint;
+
+    function preload() {
+      img = loadImage("kyle.png");
+    }
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+      smallPoint = 4;
+      largePoint = 40;
+      imageMode(CENTER);
+      noStroke();
+      background(255);
+      img.loadPixels();
+     }
+
+     function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+     }
+
+     function draw() {
+
+      var pointillize = map(mouseX, 0, width, smallPoint, largePoint);
+      var x = floor(random(img.width));
+      var y = floor(random(img.height));
+      var pix = img.get(x, y);
+      fill(pix, width);
+      ellipse(x, y, pointillize, pointillize);
+
+
+     }
+  </script>
+</body>
+</html>

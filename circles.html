@@ -9,27 +9,29 @@
 
 <body>
   <script type="text/javascript">
-
+      
     function setup() {
       createCanvas(windowWidth, windowHeight);
       smooth();
-
      }
 
      function windowResized() {
       resizeCanvas(windowWidth, windowHeight);
      }
 
-     function draw() {
-      background(255);
+     function draw() {   
       textSize(60);
       textAlign(LEFT);
       fill(0);
       textFont("Helvetica");
-      text("processing is easy and fun", 300, height/2);
+      text("processing can build alien starships", 300, height/2);
 
+      // stroke(0,50);
+      // noFill();
+      // ellipse(width/2,height/2,mouseX,mouseY);
+      }
+    
 
-     }
   </script>
 </body>
 </html>

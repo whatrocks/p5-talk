@@ -27,13 +27,11 @@
      function draw() {
       textSize(60);
       textAlign(LEFT);
-      // fill(0);
       textFont("Helvetica");
       text("processing is a digital sketch pad", 300, height/2);
       
       translate(width/2, height/2);
       rotate(rotation);
-
       stroke(0, 50);
 
       var armLength = noise(perlinPosition) * 500;
