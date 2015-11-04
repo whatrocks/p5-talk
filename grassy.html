@@ -10,9 +10,6 @@
 <body>
   <script type="text/javascript">
       
-
-
-
     function setup() {
       createCanvas(windowWidth, windowHeight);
       smooth();
@@ -33,7 +30,7 @@
 
       for(var i = 0; i < 50; i++) {
         stroke(0,random(150,255),0,150);
-        line(mouseX,mouseY,mouseX+random(-10,10),mouseY-random(10,30));        
+        line(mouseX,mouseY,mouseX+random(-100,100),mouseY-random(100,300));        
       }
 
     }

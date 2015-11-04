@@ -39,9 +39,19 @@
       var pix = img.get(x, y);
       fill(pix, width);
       ellipse(x, y, pointillize, pointillize);
-
-
      }
+
+     function keyPressed(){
+      if (keyCode === 'k') {
+        textSize(60);
+        textAlign(LEFT);
+        fill(0);
+        textFont("Helvetica");
+        text("cho tip: \n use p5 for your \ndating app pics", 500, height/2);
+
+      }
+     }
+
   </script>
 </body>
 </html>
